@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -679,7 +680,7 @@
                                     <action selector="saveFiles:" target="XfG-lQ-9wD" id="c7X-Ej-ePo"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s2t-kJ-BOU">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2t-kJ-BOU">
                                 <rect key="frame" x="6" y="675" width="115" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Enter json data  or" id="5aC-KR-174">
                                     <font key="font" metaFont="system"/>
@@ -710,14 +711,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77U-Y7-rpY" userLabel="JSONObject Input">
                                 <rect key="frame" x="8" y="38" width="367" height="629"/>
                                 <clipView key="contentView" id="AXu-d8-20L">
-                                    <rect key="frame" x="1" y="1" width="365" height="627"/>
+                                    <rect key="frame" x="1" y="1" width="350" height="627"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" id="GOY-cO-0Ne">
-                                            <rect key="frame" x="0.0" y="0.0" width="365" height="627"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="627"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="365" height="627"/>
+                                            <size key="minSize" width="350" height="627"/>
                                             <size key="maxSize" width="1103" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -732,7 +733,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="3Dy-yy-VdU">
-                                    <rect key="frame" x="350" y="1" width="16" height="627"/>
+                                    <rect key="frame" x="351" y="1" width="15" height="627"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -772,14 +773,14 @@
                                                                         <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bP-ub-2Qt">
                                                                             <rect key="frame" x="20" y="0.0" width="599" height="196"/>
                                                                             <clipView key="contentView" id="Vtn-Dj-icA">
-                                                                                <rect key="frame" x="1" y="1" width="597" height="194"/>
+                                                                                <rect key="frame" x="1" y="1" width="582" height="194"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" id="CaK-6u-fNX">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="597" height="194"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="582" height="194"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                        <size key="minSize" width="597" height="194"/>
+                                                                                        <size key="minSize" width="582" height="194"/>
                                                                                         <size key="maxSize" width="599" height="10000000"/>
                                                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textView>
@@ -791,7 +792,7 @@
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                             </scroller>
                                                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="o0w-1Y-FWO">
-                                                                                <rect key="frame" x="582" y="1" width="16" height="194"/>
+                                                                                <rect key="frame" x="583" y="1" width="15" height="194"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                             </scroller>
                                                                         </scrollView>
@@ -805,7 +806,7 @@
                                                                                 </connections>
                                                                             </buttonCell>
                                                                         </button>
-                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FpR-Za-ELo">
+                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpR-Za-ELo">
                                                                             <rect key="frame" x="584" y="203" width="37" height="17"/>
                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="beq-qg-Ubv">
                                                                                 <font key="font" metaFont="system"/>
@@ -873,7 +874,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="kMM-hs-pvU" userLabel="Status">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMM-hs-pvU" userLabel="Status">
                                 <rect key="frame" x="1022" y="675" width="4" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="z6q-uh-hCp">
                                     <font key="font" metaFont="system"/>
@@ -881,7 +882,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="j8d-bQ-SWu" userLabel="Root Class Name">
+                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8d-bQ-SWu" userLabel="Root Class Name">
                                 <rect key="frame" x="245" y="8" width="130" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="BqC-UG-Kb9"/>
@@ -895,7 +896,7 @@
                                     </connections>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-Rf-1eI" userLabel="Parent Class Name">
+                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-Rf-1eI" userLabel="Parent Class Name">
                                 <rect key="frame" x="665" y="8" width="130" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Parent class name" drawsBackground="YES" id="9tJ-VT-CNm">
                                     <font key="font" metaFont="system"/>
@@ -906,7 +907,7 @@
                                     <action selector="parentClassNameChanged:" target="XfG-lQ-9wD" id="Izl-L3-q6O"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-Hd-Ndn" userLabel="Preivew Label">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-Hd-Ndn" userLabel="Preivew Label">
                                 <rect key="frame" x="381" y="675" width="216" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preview your generated files below" id="eaU-LD-CnU">
                                     <font key="font" metaFont="system"/>
@@ -931,7 +932,7 @@
                                     <action selector="selectedLanguageChanged:" target="XfG-lQ-9wD" id="IK4-fo-hAh"/>
                                 </connections>
                             </popUpButton>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4lt-2I-gy6" userLabel="First line">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lt-2I-gy6" userLabel="First line">
                                 <rect key="frame" x="525" y="8" width="130" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="First line" drawsBackground="YES" id="LRe-2d-etY">
                                     <font key="font" metaFont="system"/>
@@ -943,7 +944,7 @@
                                     <action selector="firstLineChanged:" target="XfG-lQ-9wD" id="i1g-lx-x0b"/>
                                 </connections>
                             </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-Mo-9li" userLabel="Classes Prefix">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-Mo-9li" userLabel="Classes Prefix">
                                 <rect key="frame" x="385" y="8" width="130" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Classes prefix" drawsBackground="YES" id="RFm-PQ-dDB">
                                     <font key="font" metaFont="system"/>

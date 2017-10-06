@@ -91,11 +91,11 @@
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
                      "bodyStart": "{\n",
                      "bodyEnd": "\t}\n",
-                     "fetchBasicTypePropertyFromMap": "\t\t<!VarName!> = \"<!JsonKeyName!>\" <~~ json\n",
+                     "fetchBasicTypePropertyFromMap": "\t\tif let <!VarName!> : <!ElementType!> = \"<!JsonKeyName!>\" <~~ json {\r\n            self.<!VarName!> = <!VarName!>\r\n        }else{\r\n            self.<!VarName!> = ##\r\n        }\n",
                      "signature": "\tpublic init?(json: JSON)",
-                     "fetchArrayOfCustomTypePropertyFromMap": "\t\t<!VarName!> = \"<!JsonKeyName!>\" <~~ json\n",
+                     "fetchArrayOfCustomTypePropertyFromMap": "\t\tif let <!VarName!> : [<!ElementType!>] = \"<!JsonKeyName!>\" <~~ json  {\r\n            self.<!VarName!> = <!VarName!>\r\n        }else{\r\n            self.<!VarName!> = []\r\n        }\n",
                      "comment": "\n\t//MARK: Decodable\n",
-                     "fetchCustomTypePropertyFromMap": "\t\t<!VarName!> = \"<!JsonKeyName!>\" <~~ json\n"
+                     "fetchCustomTypePropertyFromMap": "\t\tif let <!VarName!> : <!ElementType!> = \"<!JsonKeyName!>\" <~~ json {\r\n            self.<!VarName!> = <!VarName!>\r\n        }else{\r\n            self.<!VarName!> = <!ElementType!>()\r\n        }\n"
                      }
                      ],
     "modelDefinition": "\n//MARK: - <!ModelName!>\npublic struct <!ModelName!>: Glossy ",

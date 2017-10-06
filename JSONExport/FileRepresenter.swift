@@ -93,8 +93,8 @@ class FileRepresenter{
     */
     func toString() -> String{
         fileContent = ""
-        appendFirstLineStatement()
-        appendCopyrights()
+        //appendFirstLineStatement()
+        //appendCopyrights()
         appendStaticImports()
         appendHeaderFileImport()
         appendConstVarDefinition()
@@ -116,6 +116,7 @@ class FileRepresenter{
         
         appendProperties()
         appendSettersAndGetters()
+        appendDefaultInitializers()
         appendInitializers()
         appendUtilityMethods()
         fileContent = fileContent.replacingOccurrences(of: lowerCaseModelName, with:className.lowercaseFirstChar())
@@ -297,6 +298,56 @@ class FileRepresenter{
     }
     
     /**
+     Appends all the defined constructors (aka initializers) in lang.constructors to the fileContent
+     */
+    func appendDefaultInitializers()
+    {
+        if !includeConstructors{
+            return
+        }
+        fileContent += "\n"
+        for constructor in lang.constructors{
+            
+            fileContent += "\t//MARK: Default Initializer \n"
+            fileContent += "\tinit()\n"
+            fileContent += "\t{"
+            
+            for property in properties{
+                
+                //fileContent += "\n Meghs:: \(property.type)\n"
+                //Default values Initializer
+                var strCurrentProperty = defaultPropertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                //fileContent += propertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                switch property.type {
+                case "String":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "\"\"")
+                    break
+                case "Bool":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "false")
+                    break
+                case "Float":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0.0")
+                    break
+                case "Double":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0.0")
+                    break
+                case "Int":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0")
+                    break
+                default:
+                    break
+                }
+                
+                strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "<!ElementType!>", with: property.type)
+                fileContent += strCurrentProperty
+            }
+            fileContent += "\n"
+            fileContent += constructor.bodyEnd
+            fileContent = fileContent.replacingOccurrences(of: modelName, with: className)
+        }
+    }
+    
+    /**
     Appends all the defined constructors (aka initializers) in lang.constructors to the fileContent
     */
     func appendInitializers()
@@ -314,8 +365,33 @@ class FileRepresenter{
             fileContent += constructor.bodyStart
             
             for property in properties{
+
+                //fileContent += "\n Meghs:: \(property.type)\n"
+                //Default values Initializer
+                var strCurrentProperty = propertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                //fileContent += propertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                switch property.type {
+                case "String":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "\"\"")
+                    break
+                case "Bool":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "false")
+                    break
+                case "Float":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0.0")
+                    break
+                case "Double":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0.0")
+                    break
+                case "Int":
+                    strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "##", with: "0")
+                    break
+                default:
+                    strCurrentProperty = propertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                }
                 
-                fileContent += propertyFetchFromJsonSyntaxForProperty(property, constructor: constructor)
+                strCurrentProperty = strCurrentProperty.replacingOccurrences(of: "<!ElementType!>", with: property.type)
+                fileContent += strCurrentProperty
             }
             
             fileContent += constructor.bodyEnd
@@ -426,6 +502,50 @@ class FileRepresenter{
     }
     
     //MARK: - Fetching property from a JSON object
+    
+    /**
+     Returns the suitable syntax to fetch the value of the property from a JSON object for the passed constructor
+     */
+    func defaultPropertyFetchFromJsonSyntaxForProperty(_ property: Property, constructor: Constructor) -> String
+    {
+        var propertyStr = ""
+        if property.isCustomClass{
+            propertyStr += "\n\t\t\(property.nativeName) = \(property.type)()"
+        }else if property.isArray{
+            propertyStr += "\n\t\t\(property.nativeName) = []"
+        }else {
+            switch property.type {
+            case "String":
+                propertyStr += "\n\t\t\(property.nativeName) = \"\""
+                break
+            case "Bool":
+                propertyStr += "\n\t\t\(property.nativeName) = false"
+                break
+            case "Float":
+                propertyStr += "\n\t\t\(property.nativeName) = 0.0"
+                break
+            case "Double":
+                propertyStr += "\n\t\t\(property.nativeName) = 0.0"
+                break
+            case "Int":
+                propertyStr += "\n\t\t\(property.nativeName) = 0"
+                break
+            default:
+                break
+            }
+        }
+        //Apply all the basic replacements
+        propertyStr = propertyStr.replacingOccurrences(of: varName, with: property.nativeName)
+        propertyStr = propertyStr.replacingOccurrences(of: jsonKeyName, with: property.jsonName)
+        propertyStr = propertyStr.replacingOccurrences(of: constKeyName, with: property.constName!)
+        propertyStr = propertyStr.replacingOccurrences(of: varType, with: property.type)
+        let capVarName = property.nativeName.capitalized
+        let capVarType = property.type.capitalized;
+        propertyStr = propertyStr.replacingOccurrences(of: capitalizedVarName, with: capVarName)
+        propertyStr = propertyStr.replacingOccurrences(of: capitalizedVarType, with: capVarType)
+        return propertyStr
+    }
+    
     /**
     Returns the suitable syntax to fetch the value of the property from a JSON object for the passed constructor
     */
